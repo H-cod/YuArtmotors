@@ -1,0 +1,43 @@
+{% extends 'home.html'%}
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/card-style.css' %}">
+<img src="{% static 'img/background.jpg'%}"  width="200" alt="">
+
+
+<div id="container">
+    <form action="" method="GET">
+        <input name="search" type="search">
+        <label for="cars">Choose a Brand:</label>
+        <select name="brand" id="cars">
+            <option value="">---</option>
+            {% for brand in car_brands %}
+            <option value="{{brand}}">{{ brand }}</option>
+            {% endfor %}
+        </select>
+            <button type="submit">Search</button>
+    </form>
+<div class="row">
+{% for car_detail in object_list %}
+        <div class="column">
+            <a href="{% url 'detail-detail' car_detail.pk %}"><img src="{{ car_detail.photo.url }}"
+             style="object-fit:contain;
+             width:200px;
+             height:300px;
+             border: solid 1px #CCC" alt=""></a>
+            <p><strong>NAME</strong> {{ car_detail.detail_name }}</p>
+            <p><strong>PRICE</strong> {{ car_detail.price }}</p>
+
+        </div>
+
+
+{% endfor %}
+</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/card-style.css' %}">
+
+<link rel="stylesheet" href="{% static 'js/jquery/bootstrap.min.css' %}">
+<img src="{% static 'img/background.jpg'%}"  width="200" alt="">
+<br>
+<div class="container">
+    <img src="{{ object.photo.url }}" style="object-fit:contain;
+             width:200px;
+             height:300px;
+             border: solid 1px #CCC" alt="">
+
+<p>Detail Name <strong>{{ object.detail_name }}</strong></p>
+<p>Type of Detail <strong>{{ object.detail_type }}</strong></p>
+<p>Brand <strong>{{ object.brand }}</strong></p>
+<p>Price <strong>{{ object.price }}</strong></p>
+<p>Text <strong>{{ object.description }}</strong></p>
+<p>Count <strong>{{ object.count }}</strong></p>
+    <button class="btn btn-success">BUY</button>
+</div>
+
+
+{% endblock %}

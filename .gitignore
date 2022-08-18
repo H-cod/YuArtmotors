@@ -1,0 +1,16 @@
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite
+media
+
+*.bac
+
+.idea/*
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+
+venv/
+
+.env
