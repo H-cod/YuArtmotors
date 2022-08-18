@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-wb)fg7x8u_*)h0huq147i-1!b)f6%hfd%1yg3qow@(tp0^-%x*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['yuartmotors.herokuapp.com']
+ALLOWED_HOSTS = ['yuartmotors.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -79,18 +79,14 @@ WSGI_APPLICATION = 'yuartmotors.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-                    'ENGINE': 'django.db.backends.sqlite3',
-                    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-                   }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'yuartmotors',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'ajay4747123',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'yuartmotors',
+        'USER': 'postgres',
+        'PASSWORD': 'ajay4747123',
+        'HOST': '127.0.0.1',
+        'PORT': '',
+    }
 }
 
 
@@ -131,6 +127,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'yuartmotors/static')]
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
