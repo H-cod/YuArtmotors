@@ -11,7 +11,7 @@ choices = (
 
 
 def detail_image_upload(instance, filename):
-    return f'car/details/{instance.brand}/{filename}'
+    return f'01_car/details/{instance.brand}/{filename}'
 
 
 class CarDetail(TimeStampedModel, models.Model):
@@ -34,7 +34,7 @@ class CarDetail(TimeStampedModel, models.Model):
 
 
 def car_image_upload(instance, filename):
-    return f'car/cars/{instance.brand}/{filename}'
+    return f'01_car/cars/{instance.brand}/{filename}'
 
 
 class CarBrand(TimeStampedModel, models.Model):
