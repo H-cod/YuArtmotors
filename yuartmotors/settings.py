@@ -137,7 +137,7 @@ AWS_SECRET_ACCESS_KEY = "GoO85YRh4LFk0BmMi+edjY8LbaTYJ3n/OIOyoXIv"
 AWS_STORAGE_BUCKET_NAME = "yuartmotors-files"
 
 AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = 'public-read'
+AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 S3_USE_SIGV4 = True
