@@ -34,7 +34,7 @@ class CarDetail(TimeStampedModel, models.Model):
 
 
 def car_image_upload(instance, filename):
-    return f'01_car/cars/{instance.brand}/{filename}'
+    return f'/cars/{instance.brand}/{filename}'
 
 
 class CarBrand(TimeStampedModel, models.Model):
