@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CarDetail, Cars, CarBrand
+from .models import CarDetail, Cars, CarBrand, Service
 from django.contrib.auth.models import Group
 
 # Register your models here.
@@ -25,3 +25,4 @@ admin.site.register(CarDetail, CarDetailAdmin)
 admin.site.register(Cars, CarsAdminModel)
 admin.site.register(CarBrand, CarBrandAdmin)
 admin.site.unregister(Group)
+admin.site.register(Service)

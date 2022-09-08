@@ -47,21 +47,18 @@ $(document).ready(function () {
       <!-- sub menu -->
       <ol>
         <li><a href="{% url 'car-list' %}">All Cars</a></li>
-        <li><a href="blog.html">Mercedes</a></li>
-        <li><a href="full-width.html">BMV</a></li>
-        <li><a href="columns.html">Suzuki</a></li>
+        <li><a href="{% url 'car-list' %}?brand=Mercedes">Mercedes</a></li>
+        <li><a href="{% url 'car-list' %}?brand=BMW">BMW</a></li>
+        <li><a href="{% url 'car-list' %}?brand=Mazda">Mazda</a></li>
       </ol>
     </li>
     <!-- END sub menu -->
     <li><a href="{% url 'car-details' %}">Car Details</a></li>
-    <li><a href="#">Galleries</a>
+    <li><a href="#">Services</a>
       <!-- sub menu -->
       <ol>
-        <li><a href="gallery-simple.html">Simple</a></li>
-        <li><a href="portfolio.html">Filterable</a></li>
-        <li><a href="gallery-fader.html">Fade Scroll</a></li>
-        <li><a href="video.html">Video</a></li>
-        <li class="last"><a href="photogrid.html">PhotoGrid</a></li>
+        <li><a href="gallery-simple.html">All Services</a></li>
+        <li><a href="">repair a car</a></li>
       </ol>
     </li>
     <!-- END sub menu -->
@@ -78,22 +75,22 @@ $(document).ready(function () {
       <div> <img src="{% static 'img/demo/1.jpg' %}" alt="">
         <h2>Car Selling</h2>
         <p>We are currently working on different type of machine sector.We can offer you most different type of cars especialy from Japan.</p>
-        <p style="text-align:right; margin-right: 16px"><a href="{% url 'car-list' %}" class="button">More Info</a></p>
+        <p style="text-align:right; margin-right: 16px"><a href="{% url 'car-list' %}" class="button">See List</a></p>
       </div>
       <div> <img src="{% static 'img/demo/2.jpg' %}" alt="">
         <h2>Car Details</h2>
-        <p>We have most wild car details in Armenia includings brands like Mercedes, BMV, Audi, Mitsubishi etc.</p>
-        <p style="text-align:right; margin-right: 16px"><a href="{% url 'car-details'%}" class="button">More Info</a> </p>
+        <p>We have most wild car details in Armenia including brands like Mercedes, BMW, Audi, Mitsubishi etc.</p>
+        <p style="text-align:right; margin-right: 16px"><a href="{% url 'car-details'%}" class="button">See List</a> </p>
       </div>
       <div> <img src="{% static 'img/demo/3.jpg' %}" alt="">
-        <h2>Car Cleaning</h2>
-        <p>We all sort of cleaning technologies to give you almost new car. </p>
-        <p style="text-align:right; margin-right: 16px"><a href="#" class="button">More Info</a> </p>
+        <h2>Repair Car</h2>
+        <p>We provide all sort of technologies to give you almost a new car. </p>
+        <p style="text-align:right; margin-right: 16px"><a href="#" class="button">See List</a> </p>
       </div>
       <div> <img src="{% static 'img/demo/4.jpg' %}" alt="">
         <h2>Changing Steering Wheel</h2>
         <p> We are the best in Armenia by  changing Steering wheels. We have a big experience of  Nissan, Mitsubishi.</p>
-        <p style="text-align:right; margin-right: 16px"><a href="#" class="button">More Info</a> </p>
+        <p style="text-align:right; margin-right: 16px"><a href="#" class="button">See List</a> </p>
       </div>
       <div> <img src="{% static 'img/demo/5.jpg' %}" alt="">
         <h2>Supercar</h2>
@@ -108,7 +105,7 @@ $(document).ready(function () {
       <ul>
         <li><a href="#1"><img src="{% static 'img/demo/1.jpg' %}" width="160" alt=""><strong>Cars</strong> $ 5000-50,000</a></li>
         <li><a href="#2"><img src="{% static 'img/demo/2.jpg' %}" width="160" alt=""><strong>Car Details</strong> $ 2-2,000</a></li>
-        <li><a href="#3"><img src="{% static 'img/demo/3.jpg' %}" width="160" alt=""><strong>Car Cleaning</strong> $ 100</a></li>
+        <li><a href="#3"><img src="{% static 'img/demo/3.jpg' %}" width="160" alt=""><strong>Repair Cars</strong> $ 100</a></li>
         <li><a href="#4"><img src="{% static 'img/demo/4.jpg' %}" width="160" alt=""><strong>Changing Steering Wheel</strong> $ 1,000-2,000</a></li>
         <li><a href="#5"><img src="{% static 'img/demo/5.jpg' %}" width="160" alt=""><strong>Tuning</strong> $ 1,000-9,000</a></li>
       </ul>

@@ -8,9 +8,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/card-style.css' %}">
 <img src="{% static 'img/background.jpg'%}" width="200" alt="">
 
-<div class="container">
-
-</div>
+{% if oblect_list %}
 <div id="container">
     <form action="" method="GET">
         <input name="search" type="search">
@@ -48,6 +46,7 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}
 {% endblock %}
 
 
