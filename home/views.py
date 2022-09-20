@@ -1,14 +1,15 @@
-from django.db.models import Q
 from django.shortcuts import render
-from .models import CarDetail, Cars, CarBrand
 from django.views.generic import DetailView, ListView
+from .models import CarDetail, Cars, CarBrand
+from django.db.models import Q
+
 
 # Create your views here.
 
 
 def home_page(request):
     context = {}
-    return render(request, "home.html", context)
+    return render(request, "home/home.html", context)
 
 
 class CarDetailListView(ListView):
@@ -23,16 +24,17 @@ class CarDetailListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        filter_dict = {}
+        filter_list = []
         for field in ("search", "brand"):
             value = self.request.GET.get(field, None)
             if value:
                 if field == "brand":
-                    filter_dict[field] = CarBrand.objects.get(brand_name=value)
+                   filter_list.append(Q(brand=CarBrand.objects.get(
+                       brand_name=value).pk))
                 else:
-                    filter_dict[field] = value
-        if filter_dict:
-            queryset = queryset.filter(**filter_dict).all()
+                    filter_list.append(Q(detail_name__icontains=value))
+        if filter_list:
+            queryset = queryset.filter(*filter_list)
         return queryset
 
 
@@ -43,7 +45,7 @@ class CarDetailDetailView(DetailView):
 
 class CarListView(ListView):
     model = Cars
-    template_name = "cars/car-list.html"
+    template_name = "cars/cars.html"
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -53,22 +55,31 @@ class CarListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        filter_dict = {}
-        for field in ("search", "brand", "year"):
+        filter_list = []
+        for field in ("search", "brand", "year_from", "year_to"):
             value = self.request.GET.get(field, None)
             if value:
                 if field == "brand":
-                    brand_value = CarBrand.objects.filter(
-                        brand_name=value
-                    ).first()
-                    if brand_value:
-                        filter_dict[field] = brand_value
-                else:
-                    filter_dict[field] = value
-        if filter_dict:
-            mod_queryset = queryset.filter(**filter_dict)
-            if mod_queryset.exists():
-                return mod_queryset
+                    brand = CarBrand.objects.filter(
+                            brand_name=value).first()
+                    if brand:
+                        filter_list.append(Q(brand=brand.pk))
+                elif field == 'search':
+                    filter_list.append(Q(
+                        name__icontains=value
+                    ))
+                elif field == 'year_from':
+                    filter_list.append(Q(
+                        year__gte=value
+                    ))
+                elif field == 'year_to':
+                    filter_list.append(Q(
+                        year__lte=value))
+
+        if filter_list:
+            queryset = queryset.filter(*filter_list)
+            if queryset.exists():
+                return queryset
             else:
                 return {}
         return queryset

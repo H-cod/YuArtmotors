@@ -1,28 +1,49 @@
-{% extends 'home.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/card-style.css' %}">
-
-<link rel="stylesheet" href="{% static 'js/jquery/bootstrap.min.css' %}">
-<img src="{% static 'img/background.jpg'%}"  width="200" alt="">
-<br>
-<div class="container">
-    <img src="{{ object.photo.url }}" style="object-fit:contain;
-             width:200px;
-             height:300px;
-             border: solid 1px #CCC" alt="">
-
-<p>Detail Name <strong>{{ object.detail_name }}</strong></p>
-<p>Type of Detail <strong>{{ object.detail_type }}</strong></p>
-<p>Brand <strong>{{ object.brand }}</strong></p>
-<p>Price <strong>{{ object.price }}</strong></p>
-<p>Text <strong>{{ object.description }}</strong></p>
-<p>Count <strong>{{ object.count }}</strong></p>
-    <button class="btn btn-success">BUY</button>
-</div>
+ <section class="about-cars">
+        <div class="car-photo">
+            <img src="{{ object.photo.url }}" alt="car">
+            <div><a href="{% url 'car-details' %}"><button><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to
+                        details</button></a>
+            </div>
+        </div>
+        <div class="about-car">
+            <div class="car-mil">
+                <p class="title">Detail Name :</p>
+                <p class="desc">{{ object.detail_name }}</p>
+            </div>
+            <div class="car-mil">
+                <p class="title">Type of Detail :</p>
+                <p class="desc">{{ object.detail_type }}</p>
+            </div>
+            <div class="car-mil">
+                <p class="title">Brand :</p>
+                <p class="desc">{{ object.brand }}</p>
+            </div>
+            <div class="car-mil">
+                <p class="title">Price :</p>
+                <p class="desc">{{ object.price }}</p>
+            </div>
+            <div class="car-mil">
+                <p class="title">Text :</p>
+                <p class="desc">{{ object.description }}</p>
+            </div>
+            {% if object.count %}
+            <div class="car-mil">
+                <p class="title">Count :</p>
+                <p class="desc">{{ object.count }}</p>
+            </div>
+            {% endif %}
+            <div class="car-mil">
+                <button>BUY</button>
+            </div>
+        </div>
+        </div>
+    </section>
 
 
 {% endblock %}

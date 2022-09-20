@@ -1,21 +1,69 @@
-{% extends 'home.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
 
 {% block content %}
-<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/card-style.css' %}">
-<link rel="stylesheet" href="{% static 'js/jquery/bootstrap.min.css' %}">
 
-<img src="{% static 'img/background.jpg'%}"  width="200" alt="">
 
-<div class="container">
-    <img src="{{ object.photo.url }}" style="object-fit:contain;
-             width:200px;
-             height:300px;
-             border: solid 1px #CCC" alt="">
-    <p class="container">Price {{ object.price}} </p>
-    <p>Description {{ object.description }}</p>
-</div>
+
+<section class="about-cars">
+    <div class="image-gallery">
+      <div id="big">
+        <img src="{{ object.photo.url }}">
+      </div>
+      <div id="sub">
+
+        <div>
+          <img class="img-area" src="{{ object.photo.url }}" onclick="sliderClickHandler()">
+        </div>
+        {% if object.photo_list %}
+        {% for image in object.photo_list.all %}
+          <img src="{{ image.photo.url }}" onclick="sliderClickHandler()">
+          {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="about-car">
+      <div class="car-mil">
+        <p class="title">Mileage :</p>
+        <p class="desc">{{ object.mileage }} km</p>
+      </div>
+      <div class="car-mil">
+        <p class="title">Version :</p>
+        <p class="desc">{{ object.brand.brand_name }} {{ object.name }}</p>
+      </div>
+      <div class="car-mil">
+        <p class="title">Price :</p>
+        <p class="desc">{{ object.price }} $</p>
+      </div>
+      <div class="car-mil">
+        <p class="title">Hand Drive :</p>
+        <p class="desc">{{ object.hand_drive }}</p>
+      </div>
+      <div class="car-mil">
+        <p class="title">Year :</p>
+        <p class="desc">{{ object.year }}</p>
+      </div>
+      <div class="car-mil">
+        <p class="title">Engine :</p>
+        <p class="desc">{{ object.engine }}</p>
+      </div>
+      <div class="car-mil">
+        <p class="title">Color :</p>
+        <p class="desc">{{ object.color }}</p>
+      </div>
+      <div class="car-mil">
+        <p class="title">Transmission :</p>
+        <p class="desc">{{ object.transmission}}</p>
+      </div>
+      <div class="car-mil">
+        <p class="title">Description :</p>
+        <p class="desc">{{ object.description }}</p>
+      </div>
+      <div><a href="{% url 'car-list' %}"><button><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to cars</button></a>
+      </div>
+    </div>
+  </section>
 
 {% endblock %}

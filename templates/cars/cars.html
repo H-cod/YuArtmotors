@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="search-section">
+    <div class="input-wrapper">
+      <form >
+        <div class="input-area">
+          <input type="text" name="search" placeholder="Search..." />
+        </div>
+        <div class="title"><label for="cars">Choose a Brand:</label></div>
+        <div>
+          <select name="brand" id="cars">
+            <option value="">---</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="BMW">BMW</option>
+            <option value="Mazda">Mazda</option>
+          </select>
+        </div>
+        <div class="title"><label for="car">YEAR from:</label></div>
+        <div>
+          <select name="year_from" id="years">
+            <option value="">---</option>
+            {% for year in year_range %}
+            <option value="{{year}}">{{ year }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="year-area">
+          <div class="title title-area"><label class="label-area" for="car">To:</label></div>
+          <div>
+            <select name="year_to" id="year">
+              <option value="">---</option>
+              {% for year in year_range %}
+            <option value="{{year}}">{{ year }}</option>
+            {% endfor %}
+            </select>
+          </div>
+          <div class="title"><Button>search</Button></div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="car-models">
+    {% for object in object_list %}
+    <div class="wrapper">
+      <div class="card">
+        <p class="title">{{ object.brand }}</p>
+        <img src="{{ object.photo.url }}" alt="" />
+        <div id="container">
+          <p>{{ object.name }}</p>
+          <p>{{ object.year }}</p>
+          <a href="{% url 'car-detail' object.pk %}" id="button">Detail</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </section>
+  <div class="container">
+  <ul class="pagination">
+    <li><a href="#">Previous</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">8</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+
+<script>
+  $("li").click(function () {
+  $(this).addClass("active").siblings().removeClass("active");
+});
+</script>
+{% endblock %}

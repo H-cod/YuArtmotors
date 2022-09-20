@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="wrapper-area-1">
+    <section class="carousel">
+      <div class="slides-container">
+        <div class="slide">
+          <div class="img-area">
+            <img class="mySlides" src="{% static 'images/1.jpg' %}" />
+          </div>
+          <div class="text-area">
+            <div class="desc">Car Selling</div>
+            <div class="list-area">
+              <div class="title">
+                We are currently working on different type of machine sector. <br/>
+                We can offer you most different type of cars especially from Japan.
+              </div>
+              <a href="{% url 'car-list' %}">See list</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="img-area">
+            <img class="mySlides" src="{% static 'images/2.jpg' %}" />
+          </div>
+          <div class="text-area">
+            <div class="desc">Car Details</div>
+            <div class="list-area">
+              <div class="title">
+                We have most wild car details in Armenia including brands like <br/>
+                Mercedes, BMV, Audi, Mitsubishi etc.
+              </div>
+              <a href="{% url 'car-details'%}">See list</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="img-area">
+            <img class="mySlides" src="{% static 'images/3.jpg' %}" />
+          </div>
+          <div class="text-area">
+            <div class="desc">Car Cleaning</div>
+            <div class="list-area">
+              <div class="title">
+                We all sort of cleaning technologies to give you almost new car.
+              </div>
+              <a href="#">See list</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="img-area">
+            <img class="mySlides" src="{% static 'images/4.jpg' %}" />
+          </div>
+          <div class="text-area">
+            <div class="desc">Services</div>
+            <div class="list-area">
+              <div class="title">
+                We are the best in Armenia by changing Steering wheels. We have a
+                big <br/>experience of Nissan, Mitsubishi.
+              </div>
+              <a href="{% url 'services' %}">See list</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="img-area">
+            <img class="mySlides" src="{% static 'images/5.jpg' %}" />
+          </div>
+          <div class="text-area">
+            <div class="desc">Supercar</div>
+            <div class="list-area">
+              <div class="title">
+                Together we will make your car a monster
+              </div>
+              <a href="#">See list</a>
+            </div>
+          </div>
+        </div>
+
+        <button class="prev-btn" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="next-btn" onclick="plusDivs(1)">&#10095;</button>
+      </div>
+    </section>
+    <section class="about-us">
+      <p class="title">About our company</p>
+      <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum delectus vel fugit laboriosam sunt nisi
+        nulla ut est velit? Dignissimos ut architecto consequuntur quidem cumque esse voluptas ipsum repudiandae explicabo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum delectus vel fugit laboriosam sunt nisi
+        nulla ut est velit? Dignissimos ut architecto consequuntur quidem cumque esse voluptas ipsum repudiandae explicabo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum delectus vel fugit laboriosam sunt nisi
+        nulla ut est velit? Dignissimos ut architecto consequuntur quidem cumque esse voluptas ipsum repudiandae explicabo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum delectus vel fugit laboriosam sunt nisi
+        nulla ut est velit? Dignissimos ut architecto consequuntur quidem cumque esse voluptas ipsum repudiandae explicabo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum delectus vel fugit laboriosam sunt nisi
+        nulla ut est velit? Dignissimos ut architecto consequuntur quidem cumque esse voluptas ipsum repudiandae explicabo.
+      </p>
+    </section>
+  </div>
+
+{% endblock %}

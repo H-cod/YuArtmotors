@@ -1,43 +1,57 @@
-{% extends 'home.html'%}
+{% extends 'base.html'%}
 {% load static %}
-
-
 
 {% block content %}
 
 
 
-<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/card-style.css' %}">
-<img src="{% static 'img/background.jpg'%}"  width="200" alt="">
-
-
-<div id="container">
-    <form action="" method="GET">
-        <input name="search" type="search">
-        <label for="cars">Choose a Brand:</label>
-        <select name="brand" id="cars">
-            <option value="">---</option>
-            {% for brand in car_brands %}
-            <option value="{{brand}}">{{ brand }}</option>
-            {% endfor %}
-        </select>
-            <button type="submit">Search</button>
-    </form>
-<div class="row">
-{% for car_detail in object_list %}
-        <div class="column">
-            <a href="{% url 'detail-detail' car_detail.pk %}"><img src="{{ car_detail.photo.url }}"
-             style="object-fit:contain;
-             width:200px;
-             height:300px;
-             border: solid 1px #CCC" alt=""></a>
-            <p><strong>NAME</strong> {{ car_detail.detail_name }}</p>
-            <p><strong>PRICE</strong> {{ car_detail.price }}</p>
-
+<section class="search-section">
+    <div class="input-wrapper">
+      <form action="">
+        <div class="input-area">
+          <input type="text" name="search" placeholder="Search..." />
         </div>
-
-
-{% endfor %}
-</div>
+        <div class="title"><label for="cars">Choose a Brand:</label></div>
+        <div>
+          <select name="brand" id="cars">
+            <option value="">---</option>
+            {% if car_brands %}
+              {% for car_brand in car_brands %}
+                <option value="{{ car_brand.brand_name }}">{{ car_brand.brand_name }}</option>
+              {% endfor %}
+            {% endif %}
+          </select>
+        </div>
+        <div class="title"><Button>search</Button></div>
+      </form>
     </div>
+  </section>
+  <section class="car-models">
+      {% for object in object_list %}
+    <div class="wrapper">
+      <div class="card">
+        <p><b>Name {{ object.detail_name }}</b></p>
+        <img src="{{ object.photo.url }}" alt="" />
+        <div id="container">
+          <p>Price {{ object.price }}</p>
+          <a href="{% url 'detail-detail' object.pk %}" id="button">Detail</a>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+  </section>
+<div class="container">
+  <ul class="pagination">
+    <li><a href="#">Previous</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">8</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
 {% endblock %}
