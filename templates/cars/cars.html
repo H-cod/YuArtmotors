@@ -11,9 +11,11 @@
         <div>
           <select name="brand" id="cars">
             <option value="">---</option>
-            <option value="Chevrolet">Chevrolet</option>
-            <option value="BMW">BMW</option>
-            <option value="Mazda">Mazda</option>
+            {% if car_brands %}
+              {% for brand in car_brands %}
+                <option value="{{ brand }}">{{ brand }}</option>
+              {% endfor %}
+            {% endif %}
           </select>
         </div>
         <div class="title"><label for="car">YEAR from:</label></div>
