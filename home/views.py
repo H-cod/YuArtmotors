@@ -13,6 +13,7 @@ def home_page(request):
 
 
 class CarDetailListView(ListView):
+    paginate_by = 12
     model = CarDetail
     template_name = "details/detail.html"
 
@@ -44,6 +45,7 @@ class CarDetailDetailView(DetailView):
 
 
 class CarListView(ListView):
+    paginate_by = 12
     model = Cars
     template_name = "cars/cars.html"
 
