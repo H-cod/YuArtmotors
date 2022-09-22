@@ -56,3 +56,8 @@ function sliderClickHandler() {
   }
 }
 
+
+function handleLanguagesDropdownOpen() {
+  let dropdown = document.querySelector(".dropdown")
+  dropdown.classList.toggle("active")
+}

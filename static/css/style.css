@@ -51,6 +51,10 @@ header {
   background: #1d1e237a;
 }
 
+header .navigation {
+  margin-right: 16px;
+}
+
 header nav .logo_area {
   display: flex;
   align-items: center;
@@ -92,6 +96,7 @@ header ul .about {
   border-radius: 40px;
   margin-right: 8%;
   width: 100%;
+  align-items: center;
 }
 
 header ul .about a {
@@ -142,7 +147,7 @@ header ul .about a:hover:after {
   border: none;
   color: white;
   background: gray;
-  padding: 2px 0px;
+  padding: 7px 0px;
   border-radius: 6px;
   width: 100px;
   height: 35px;
@@ -320,6 +325,7 @@ input[type="submit"]:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .search-section .input-wrapper form .title {
@@ -334,6 +340,8 @@ input[type="submit"]:hover {
   border-radius: 6px;
   width: 75px;
   cursor: pointer;
+  margin-bottom: 9px;
+  margin-left: 10px;
 }
 
 .search-section .input-wrapper form input {
@@ -393,6 +401,7 @@ input[type="submit"]:hover {
 .car-models .wrapper {
   width: 24.5%;
   margin: 4px 1px;
+  padding: 10px;
 }
 
 .car-models .wrapper img {
@@ -439,6 +448,7 @@ input[type="submit"]:hover {
   width: 100%;
   height: 550px;
   border: 2px solid black;
+  object-fit: cover;
 }
 
 #sub img {
@@ -448,6 +458,7 @@ input[type="submit"]:hover {
   float: left;
   opacity: 0.7;
   cursor: pointer;
+  object-fit: cover;
 }
 .about-cars {
   display: flex;
@@ -526,148 +537,173 @@ input[type="submit"]:hover {
 
 /* #endregion */
 
-/* #region pagination */
-html {
-  overflow-y: scroll;
-  box-sizing: border-box;
-  font-size: 100%;
-  line-height: 1.4236;
-  font-family: "Roboto", sans-serif;
-  background-color: #f3f3f3;
-  color: #212121;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-body {
-  font-size: 1.382rem;
-}
 .wrapper-area-1 {
-  display: flex;
-  flex-direction: column;
-  min-height: 50vh;
-  padding: 1em;
-  max-width: 53rem;
-  justify-content: center;
-  align-items: center;
+  width: 48%;
+  margin: 23px auto;
+}
+
+/* #region pagination */
+#wrapper-area {
   margin: 0 auto;
+  display: block;
 }
-ul {
-  list-style: none;
+#wrapper-area a {
+  color: white;
+  background: gray;
 }
-.pagination,
-.pagination li a {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+#pagination {
+  margin: 0;
+  padding: 0;
+  text-align: center
 }
-.pagination li {
-  background-color: #393635;
+#pagination li {
+  display: inline
 }
-.pagination a {
-  font-weight: 300;
-  padding-top: 1px;
-  text-decoration: none;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  border-left-width: 0;
-  min-width: 44px;
-  min-height: 44px;
-  color: rgba(255, 255, 255, 0.85);
-  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.35);
-}
-.pagination li:not([class*="active"]) a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-top-color: rgba(0, 0, 0, 0.35);
-  border-bottom-color: rgba(0, 0, 0, 0.5);
-}
-.pagination li:not([class*="active"]) a:focus,
-.pagination li:not([class*="active"]) a:active {
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
-  border-left-width: 1px;
-}
-.pagination li:first-of-type a {
-  border-left-width: 1px;
-}
-.pagination li:first-of-type span,
-.pagination li:last-of-type span,
-.pagination li:nth-of-type(2) span,
-.pagination li:nth-last-of-type(2) span {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-.pagination li:first-child a::before,
-.pagination li:last-child a::after,
-.pagination li:nth-of-type(2) a::before,
-.pagination li:nth-last-of-type(2) a::after {
+#pagination li a {
   display: inline-block;
-  font-family: Fontawesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #000
 }
-
-.pagination li:first-child a::before,
-.pagination li:last-child a::after {
-  content: "\f100";
+.b-pagination-outer {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+  display: flex
 }
-
-.pagination li:nth-of-type(2) a::before,
-.pagination li:nth-last-of-type(2) a::after {
-  content: "\f104";
+#border-pagination {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center
 }
+#border-pagination li {
+  display: inline;
 
-.pagination li:last-child a::after,
-.pagination li:nth-last-of-type(2) a::after {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
 }
+#border-pagination li a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  float: left;
 
-.pagination li.active a {
-  padding-top: 0.25em;
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
-  cursor: default;
-  pointer-events: none;
+}
+#border-pagination li a {
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s
+}
+#border-pagination li a:hover:not(.active) {
+  background: #ddd;
 }
 /* #endregion */
 
-@media screen and (max-width: 350px) {
-  .about-cars .image-gallery {
-    margin-top: 14%;
+.dropdown {
+  margin-left: 26px;
+  margin-right: 6px;
+}
+
+.dropdown button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dropdown .options {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  text-align: center;
+  background: #1d1e23c4;
+}
+.dropdown .options img {
+  width: 30px;
+}
+
+
+.dropdown.active .options {
+  display: block;
+}
+
+.dropdown .options div {
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width:1500px) {
+  footer .footer-wrapper {
+    width: 33.3%;
   }
-  .carousel .prev-btn,
-  .carousel .next-btn {
-    top: 17% !important;
-    width: 20px;
-    height: 20px;
-  }
-  #sub img {
-    width: 50%;
-  }
-  .about-cars .about-car .car-mil {
-    width: 100%;
+  footer a {
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 
-@media screen and (max-width: 575px) {
-  header {
-    position: fixed;
+@media screen and (max-width: 991px) {
+  .footer-wrapper div {
+    width: 68.3%;
   }
   header .hamburger-logo {
     display: block;
+    position: fixed;
+    top: 16px;
+    right: 15px;
+    z-index: 99;
   }
-  .header .logo_area p {
-    font-size: 16px;
+
+  header .hamburger-logo.opened .menu-icon span {
+    height: 0;
   }
-  .menu-icon {
+  header .hamburger-logo .menu-icon span::before {
+    transition: 0.3s;
+  }
+  header .hamburger-logo .menu-icon span::after {
+    transition: 0.3s;
+  }
+  header .hamburger-logo.opened .menu-icon span::before {
+    transform: rotate(45deg);
+  }
+  header .hamburger-logo.opened .menu-icon span::after {
+    transform: rotate(-45deg);
+    margin: -15px 0;
+  }
+  header ul {
+    height: 70px;
+  }
+
+  header .navigation .about {
+    display: block;
+    position: fixed;
+    right: -9000px;
+    width: 300px;
+    margin-right: 0;
+    height: 100%;
+    background: #938c8c;
+    z-index: 99;
+    top: 0;
+    border-radius: unset;
+    box-shadow: 0px 0px 10px #232931;
+    transition: 0.3s;
+  }
+  header .navigation .about.opened {
+    right: 0;
+  }
+
+.menu-icon {
     display: flex;
     width: 40px;
     height: 35px;
@@ -695,55 +731,26 @@ ul {
     display: block;
     margin: -5px 0;
   }
-  footer {
-    flex-direction: column;
-  }
   footer div {
-    width: 65%;
+    width: 50.3%;
   }
-  footer .footer-wrapper {
-    width: 100%;
-    margin-bottom: 13px;
+  footer img {
+    width: 60%;
   }
-  footer .info-area {
-    text-align: center;
+  .about-car .car-mil {
+    width: 60%;
   }
-  .carousel .prev-btn,
-  .carousel .next-btn {
-    top: 16%;
-  }
-  .car-models {
+  .about-cars {
     flex-direction: column;
     align-items: center;
   }
-  .car-models .wrapper {
-    width: 100%;
-  }
-  .car-models .wrapper {
-    width: 37.5%;
-  }
-  .car-models .card img {
-    width: 100%;
-  }
-  .search-section {
-    width: 100%;
-  }
-  .search-section .input-wrapper {
-    width: 94%;
-    margin-left: 15px;
-  }
-
-  .about-car .car-mil {
-    width: 68%;
-  }
-  .about-cars {
-    margin-top: 14%;
-  }
   .about-cars .image-gallery {
-    padding-right: 0px;
+    width: 100%;
+    padding-right: 0;
   }
-  .about-cars .car-photo button {
-    margin-right: 42%;
+  .about-cars .about-car {
+    width: 100%;
+    margin-top: 20px;
   }
   .pagination li:first-child,
   .pagination li:last-child {
@@ -754,20 +761,18 @@ ul {
   .pagination li:nth-of-type(2) a {
     border-left-width: 1px;
   }
-  .slides-container .text-area .title {
-    width: 55%;
-  }
-  .about-us .desc {
-    line-height: 24px;
-  }
-  .about-us .title {
-    font-size: 35px;
-  }
 }
+
 
 @media screen and (max-width: 767px) {
   .footer-wrapper div {
     width: 72.3%;
+  }
+  footer h1 {
+    font-size: 22px;
+  }
+  footer .info-area p:first-child {
+    font-size: 15px;
   }
   header .hamburger-logo {
     display: block;
@@ -840,56 +845,17 @@ ul {
   }
 }
 
-@media screen and (max-width: 991px) {
-  .footer-wrapper div {
-    width: 68.3%;
+
+@media screen and (max-width: 575px) {
+  header {
+    position: fixed;
   }
   header .hamburger-logo {
     display: block;
-    position: fixed;
-    top: 16px;
-    right: 15px;
-    z-index: 99;
   }
-
-  header .hamburger-logo.opened .menu-icon span {
-    height: 0;
+  .header .logo_area p {
+    font-size: 16px;
   }
-  header .hamburger-logo .menu-icon span::before {
-    transition: 0.3s;
-  }
-  header .hamburger-logo .menu-icon span::after {
-    transition: 0.3s;
-  }
-  header .hamburger-logo.opened .menu-icon span::before {
-    transform: rotate(45deg);
-  }
-  header .hamburger-logo.opened .menu-icon span::after {
-    transform: rotate(-45deg);
-    margin: -15px 0;
-  }
-  header ul {
-    height: 70px;
-  }
-
-  header .navigation .about {
-    display: block;
-    position: fixed;
-    right: -9000px;
-    width: 300px;
-    margin-right: 0;
-    height: 100%;
-    background: #938c8c;
-    z-index: 99;
-    top: 0;
-    border-radius: unset;
-    box-shadow: 0px 0px 10px #232931;
-    transition: 0.3s;
-  }
-  header .navigation .about.opened {
-    right: 0;
-  }
-
   .menu-icon {
     display: flex;
     width: 40px;
@@ -918,26 +884,58 @@ ul {
     display: block;
     margin: -5px 0;
   }
+  footer {
+    flex-direction: column;
+  }
   footer div {
-    width: 50.3%;
+    width: 65%;
   }
-  footer img {
-    width: 60%;
+  footer a {
+    justify-content: center;
   }
-  .about-car .car-mil {
-    width: 60%;
+  footer .footer-wrapper {
+    width: 100%;
+    margin-bottom: 13px;
   }
-  .about-cars {
+  footer .info-area {
+    text-align: center;
+  }
+  .carousel .prev-btn,
+  .carousel .next-btn {
+    top: 16%;
+  }
+  .car-models {
     flex-direction: column;
     align-items: center;
   }
-  .about-cars .image-gallery {
+  .car-models .wrapper {
     width: 100%;
-    padding-right: 0;
   }
-  .about-cars .about-car {
+  .car-models .wrapper {
+    width: 37.5%;
+  }
+  .car-models .card img {
     width: 100%;
-    margin-top: 20px;
+  }
+  .search-section {
+    width: 100%;
+  }
+  .search-section .input-wrapper {
+    width: 94%;
+    margin-left: 15px;
+  }
+
+.about-car .car-mil {
+    width: 68%;
+  }
+  .about-cars {
+    margin-top: 14%;
+  }
+  .about-cars .image-gallery {
+    padding-right: 0px;
+  }
+  .about-cars .car-photo button {
+    margin-right: 42%;
   }
   .pagination li:first-child,
   .pagination li:last-child {
@@ -947,5 +945,33 @@ ul {
   }
   .pagination li:nth-of-type(2) a {
     border-left-width: 1px;
+  }
+  .slides-container .text-area .title {
+    width: 55%;
+  }
+  .about-us .desc {
+    line-height: 24px;
+  }
+  .about-us .title {
+    font-size: 35px;
+  }
+}
+
+
+@media screen and (max-width: 350px) {
+  .about-cars .image-gallery {
+    margin-top: 14%;
+  }
+  .carousel .prev-btn,
+  .carousel .next-btn {
+    top: 17% !important;
+    width: 20px;
+    height: 20px;
+  }
+  #sub img {
+    width: 50%;
+  }
+  .about-cars .about-car .car-mil {
+    width: 100%;
   }
 }

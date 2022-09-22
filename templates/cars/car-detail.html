@@ -14,9 +14,9 @@
       </div>
       <div id="sub">
 
-        <div>
-          <img class="img-area" src="{{ object.photo.url }}" onclick="sliderClickHandler()">
-        </div>
+
+        <img src="{{ object.photo.url }}" onclick="sliderClickHandler()">
+
         {% if object.photo_list %}
         {% for image in object.photo_list.all %}
           <img src="{{ image.photo.url }}" onclick="sliderClickHandler()">
